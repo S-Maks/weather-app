@@ -1,0 +1,16 @@
+<div>
+  <h3 class="text-center text-weather">ПОГОДА</h3>
+  <div class="horizontal-center input-block">
+    <div>
+      <ng-select
+        [items]="cities"
+        bindLabel="name"
+        bindValue="id"
+        autocomplete="off"
+        (input)="onInput($event)"
+        [(ngModel)]="selectedCity">
+      </ng-select>
+      <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>
+    </div>
+  </div>
+</div>
