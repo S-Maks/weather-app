@@ -1,5 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
+export interface City {
+  id: number
+  name: string
+}
+
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -7,6 +12,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
   isValid: boolean = false;
+  cities: City[] = []
 
   constructor() {
   }
@@ -15,10 +21,22 @@ export class WeatherComponent implements OnInit {
   }
 
   onInput(event: Event) {
-    this.isValid = (<HTMLInputElement>event.target).value.length > 3
+    if ((<HTMLInputElement>event.target).value.length > 3) {
+      this.isValid = true
+      this.cities = getCities((<HTMLInputElement>event.target).value)
+    } else {
+      this.isValid = false
+      this.cities = []
+    }
   }
 
-  selectedCity: number = 0;
+}
 
-  cities = [];
+function getCities(name: string) {
+
+  return [
+    {id: 1, name: 'Москва'},
+    {id: 2, name: 'Питер'},
+    {id: 3, name: 'Воронеж'}
+  ]
 }
