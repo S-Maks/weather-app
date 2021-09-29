@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 export interface City {
   id: number
@@ -14,13 +15,14 @@ export class WeatherComponent implements OnInit {
   isValid: boolean = false;
   cities: City[] = []
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
   }
 
   onInput(event: Event) {
+    console.log(this.http.get("https://vivazzi.pro/test-request/?json=true"))
     if ((<HTMLInputElement>event.target).value.length > 3) {
       this.isValid = true
       this.cities = getCities((<HTMLInputElement>event.target).value)
