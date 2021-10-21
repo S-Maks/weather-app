@@ -23,7 +23,7 @@ export class WeatherService extends BaseService {
     }).pipe(
       map(data => {
           return data?.response?.GeoObjectCollection?.featureMember?.map((value: any) => ({
-            id: 1, name: value?.GeoObject?.name
+            pos: value?.Point?.pos, name: value?.GeoObject?.name
           }))
         },
       ),

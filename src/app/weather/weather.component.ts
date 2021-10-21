@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "./service/weather.service";
 
 export interface City {
-  id: number
+  pos: string
   name: string
 }
 
@@ -29,5 +29,9 @@ export class WeatherComponent implements OnInit {
       this.isValid = false
       this.cities = []
     }
+  }
+
+  onEnter(id: any) {
+    console.log(id)
   }
 }
