@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
+import {WeatherService} from "./service/weather.service";
 
 export interface City {
   id: number
@@ -18,7 +15,7 @@ export class WeatherComponent implements OnInit {
   isValid: boolean = false;
   cities: City[] = []
 
-  constructor(private http: HttpClient) {
+  constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
@@ -27,31 +24,10 @@ export class WeatherComponent implements OnInit {
   onInput(event: Event) {
     if ((<HTMLInputElement>event.target).value.length > 3) {
       this.isValid = true
-      getCities((<HTMLInputElement>event.target).value, this.http).subscribe(event => this.cities = event)
+      this.weatherService.getCities((<HTMLInputElement>event.target).value).subscribe(event => this.cities = event)
     } else {
       this.isValid = false
       this.cities = []
     }
   }
-}
-
-function getCities(name: string, http: HttpClient): Observable<City[]> {
-  const httpParams = new HttpParams()
-    .set('apikey', environment.geocodeYandexApiKey)
-    .set('geocode', name)
-    .set('results', environment.resultCitiesCount.toString())
-    .set('format', 'json')
-    .set('kind', 'locality')
-  return http.get<any>(environment.url, {
-    params: httpParams
-  }).pipe(
-    map(
-      data => {
-        return data?.response?.GeoObjectCollection?.featureMember?.map((value: any) => ({
-          id: 1,
-          name: value['GeoObject']['name']
-        }))
-      }
-    )
-  )
 }

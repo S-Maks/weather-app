@@ -3,9 +3,10 @@
   <div class="horizontal-center input-block">
     <div>
       <ng-select
-        (keyup)="onInput($event)">
-          <ng-option class="option-select" *ngFor="let city of cities" [value]="city.id">{{city.name}}>
-          </ng-option>
+        (keyup)="onInput($event)"
+        (keyup.enter)="onEnter($event)">
+        <ng-option class="option-select" *ngFor="let city of cities" [value]="city.id">{{city.name}}>
+        </ng-option>
       </ng-select>
       <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>
     </div>
