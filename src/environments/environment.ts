@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'http://geocode-maps.yandex.ru/1.x/',
+  geocodeYandexApiKey: '07405901-73f6-4c15-878e-821590bb53aa',
+  resultCitiesCount:5
 };
 
 /*
