@@ -4,8 +4,8 @@
     <div>
       <ng-select
         (keyup)="onInput($event)"
-        (change)="onEnter($event.target)">
-        <ng-option class="option-select" *ngFor="let city of cities" [value]="city.pos">{{city.name}}>
+        (change)="onEnter($event)">
+        <ng-option class="option-select" *ngFor="let city of cities" [value]="city.pos">{{city.name}}
         </ng-option>
       </ng-select>
       <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>

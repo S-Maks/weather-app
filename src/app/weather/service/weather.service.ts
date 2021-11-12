@@ -17,14 +17,15 @@ export class WeatherService extends BaseService {
       .set('geocode', name)
       .set('results', environment.resultCitiesCount.toString())
       .set('format', environment.format)
-      .set('kind', environment.kind)
     return this.http.get<any>(environment.url, {
       params: httpParams
     }).pipe(
       map(data => {
-          return data?.response?.GeoObjectCollection?.featureMember?.map((value: any) => ({
-            pos: value?.Point?.pos, name: value?.GeoObject?.name
-          }))
+          return data?.response?.GeoObjectCollection?.featureMember?.filter((obj: any) => obj?.GeoObject?.metaDataProperty?.GeocoderMetaData?.kind === 'locality' ||
+            obj?.GeoObject?.metaDataProperty?.GeocoderMetaData?.kind === 'province')
+            .map((value: any) => ({
+              pos: value?.GeoObject?.Point?.pos, name: value?.GeoObject?.name + ' ' + value?.GeoObject?.description
+            }))
         },
       ),
       catchError(this.handleError('getCities', []))

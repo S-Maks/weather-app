@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "./service/weather.service";
+import {ActivatedRoute, Route} from "@angular/router";
 
 export interface City {
   pos: string
@@ -31,7 +32,7 @@ export class WeatherComponent implements OnInit {
     }
   }
 
-  onEnter(id: any) {
-    console.log(id)
+  onEnter(pos: string) {
+    console.log(pos)
   }
 }
