@@ -3,20 +3,26 @@
   margin-right: auto;
 }
 
-.text-weather{
+.text-weather {
   font-size: 30px;
   color: white;
   font-family: serif;
 }
+
 .input-block {
   width: 30em;
   background-color: #F0F0F0FF;
-  border-radius:5px;
+  border-radius: 5px;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
-.option-select{
-  padding-top: 20px;
+
+::ng-deep .ng-option-label {
+  margin-top: 25px;
+  display: block;
+}
+::ng-deep .ng-option {
+  margin-top: 45px;
 }
