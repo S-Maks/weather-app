@@ -1,14 +1,14 @@
 <div>
   <h3 class="text-center text-weather">ПОГОДА</h3>
   <div class="horizontal-center input-block">
-    <div>
+    <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>
+    <div class = "option-select">
       <ng-select
         (keyup)="onInput($event)"
         (change)="onEnter($event)">
-        <ng-option class="option-select" *ngFor="let city of cities" [value]="city.pos">{{city.name}}
+        <ng-option *ngFor="let city of cities" [value]="city.pos">{{city.name}}
         </ng-option>
       </ng-select>
-      <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>
     </div>
   </div>
 </div>

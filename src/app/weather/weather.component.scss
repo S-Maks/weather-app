@@ -19,10 +19,11 @@
   text-align: center;
 }
 
-::ng-deep .ng-option-label {
-  margin-top: 25px;
+.option-select {
+  margin-top: 10px;
   display: block;
 }
-::ng-deep .ng-option {
-  margin-top: 45px;
+::ng-deep .ng-option-disabled{
+  margin-top: 27px;
+  margin-left: 7px;
 }
