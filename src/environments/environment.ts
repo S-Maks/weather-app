@@ -8,7 +8,9 @@ export const environment = {
   geocodeYandexApiKey: '07405901-73f6-4c15-878e-821590bb53aa',
   resultCitiesCount: 10,
   format: 'json',
-  kind: 'locality'
+  kind: 'locality',
+  openWeatherMapApiKey: 'fd4437a9da84135dbfc1b9119a420906',
+  openWeatherMapURL: 'https://api.openweathermap.org/data/2.5/forecast'
 };
 
 /*

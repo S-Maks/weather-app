@@ -1,10 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "./service/weather.service";
-import {ActivatedRoute, Route} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 
 export interface City {
   pos: string
   name: string
+}
+
+export interface PeriodForecast {
+  temp: number
+  time: string
+  date: string
 }
 
 @Component({
@@ -15,6 +21,7 @@ export interface City {
 export class WeatherComponent implements OnInit {
   isValid: boolean = false;
   cities: City[] = []
+  weather: PeriodForecast[] = []
 
   constructor(private weatherService: WeatherService) {
   }
@@ -33,6 +40,7 @@ export class WeatherComponent implements OnInit {
   }
 
   onEnter(pos: string) {
-    console.log(pos)
+    this.weatherService.getWeather(pos).subscribe(event => this.weather = event)
+    console.log(this.weather)
   }
 }
