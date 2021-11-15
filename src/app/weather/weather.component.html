@@ -10,6 +10,13 @@
         </ng-option>
       </ng-select>
     </div>
-    <span *ngIf="weather.length!=0"> погодка</span>
+    <div *ngIf="weather.length!=0">
+      <table>
+        <tr *ngFor="let period of weather">
+          <td>{{period.temp}}</td>
+          <td>{{period.time}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

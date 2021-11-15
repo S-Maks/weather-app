@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "./service/weather.service";
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {DatePipe} from "@angular/common";
 
 export interface City {
   pos: string
@@ -23,7 +23,7 @@ export class WeatherComponent implements OnInit {
   cities: City[] = []
   weather: PeriodForecast[] = []
 
-  constructor(private weatherService: WeatherService) {
+  constructor(private weatherService: WeatherService, public datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
@@ -41,6 +41,5 @@ export class WeatherComponent implements OnInit {
 
   onEnter(pos: string) {
     this.weatherService.getWeather(pos).subscribe(event => this.weather = event)
-    console.log(this.weather)
   }
 }

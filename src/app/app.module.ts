@@ -8,6 +8,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ViewComponent} from './view/view.component';
+import {DatePipe} from "@angular/common";
+import {SwiperModule} from "swiper/angular";
 
 @NgModule({
   declarations: [
@@ -16,9 +18,9 @@ import {ViewComponent} from './view/view.component';
     ViewComponent
   ],
   imports: [
-    BrowserModule, NgSelectModule, FormsModule, HttpClientModule
+    BrowserModule, NgSelectModule, FormsModule, HttpClientModule, SwiperModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
