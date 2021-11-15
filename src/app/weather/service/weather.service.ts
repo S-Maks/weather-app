@@ -3,8 +3,9 @@ import {HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {catchError, map} from "rxjs/operators";
-import {City, PeriodForecast} from "../weather.component";
+import {City} from "../weather.component";
 import {BaseService} from "./base.service";
+import {PeriodForecast} from "../../view/view.component";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class WeatherService extends BaseService {
         map(data => {
           return data?.list?.map((value: any) => ({
             temp: Math.round(value?.main?.temp),
-            time: this.datepipe.transform(value?.dt_txt,'HH:mm')
+            time: this.datepipe.transform(value?.dt_txt, 'HH:mm')
           }))
         }),
         catchError(this.handleError('getWeather', []))

@@ -10,13 +10,6 @@
         </ng-option>
       </ng-select>
     </div>
-    <div *ngIf="weather.length!=0">
-      <table>
-        <tr *ngFor="let period of weather">
-          <td>{{period.temp}}</td>
-          <td>{{period.time}}</td>
-        </tr>
-      </table>
-    </div>
   </div>
+  <app-view [position]="pos"></app-view>
 </div>

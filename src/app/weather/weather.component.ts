@@ -7,12 +7,6 @@ export interface City {
   name: string
 }
 
-export interface PeriodForecast {
-  temp: number
-  time: string
-  date: string
-}
-
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -21,7 +15,7 @@ export interface PeriodForecast {
 export class WeatherComponent implements OnInit {
   isValid: boolean = false;
   cities: City[] = []
-  weather: PeriodForecast[] = []
+  pos: string = ''
 
   constructor(private weatherService: WeatherService, public datepipe: DatePipe) {
   }
@@ -40,6 +34,6 @@ export class WeatherComponent implements OnInit {
   }
 
   onEnter(pos: string) {
-    this.weatherService.getWeather(pos).subscribe(event => this.weather = event)
+    this.pos = pos;
   }
 }
