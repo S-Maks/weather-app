@@ -44,7 +44,8 @@ export class WeatherService extends BaseService {
         map(data => {
           return data?.list?.map((value: any) => ({
             temp: Math.round(value?.main?.temp),
-            time: this.datepipe.transform(value?.dt_txt, 'HH:mm')
+            time: this.datepipe.transform(value?.dt_txt, 'HH:mm'),
+            date: this.datepipe.transform(value?.dt_txt, 'EEEE',)
           }))
         }),
         catchError(this.handleError('getWeather', []))

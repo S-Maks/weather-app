@@ -19,6 +19,8 @@ export interface PeriodForecast {
 export class ViewComponent implements OnInit {
   @Input() position: string = ""
   weather: PeriodForecast[] = []
+  test: Map<String, Array<PeriodForecast>> = new Map<String, Array<PeriodForecast>>()
+  test2: Array<PeriodForecast> = new Array<PeriodForecast>();
 
   constructor(private weatherService: WeatherService) {
   }
@@ -26,7 +28,9 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.weatherService.getWeather(this.position).subscribe(data => this.weather = data)
+    this.weather.forEach((data: PeriodForecast) => {
+    })
   }
 }
