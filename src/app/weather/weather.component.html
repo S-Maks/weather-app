@@ -11,5 +11,8 @@
       </ng-select>
     </div>
   </div>
-  <app-view [position]="pos"></app-view>
+  <div *ngIf="pos.length!=0">
+    <app-view [position]="pos"></app-view>
+  </div>
+
 </div>

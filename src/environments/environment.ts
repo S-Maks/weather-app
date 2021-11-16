@@ -9,7 +9,7 @@ export const environment = {
   resultCitiesCount: 10,
   format: 'json',
   kind: 'locality',
-  openWeatherMapApiKey: 'fd4437a9da84135dbfc1b9119a420906',
+  openWeatherMapApiKey: '12a9ea170695cc9489a777f1a5c6efd5',
   openWeatherMapURL: 'https://api.openweathermap.org/data/2.5/forecast'
 };
 

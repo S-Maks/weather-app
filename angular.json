@@ -31,7 +31,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/snejinka.png",
+              "src/icon-snow.png"
             ],
             "styles": [
               "src/styles.scss"
