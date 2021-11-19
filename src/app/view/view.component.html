@@ -1,5 +1,5 @@
 <swiper
-  [slidesPerView]="8"
+  [slidesPerView]="1"
 
   [spaceBetween]="20"
   [pagination]="{
@@ -7,12 +7,13 @@
     }"
   class="mySwiper"
 >
-  <ng-template swiperSlide *ngFor=" let period of weather">
+  <ng-template swiperSlide *ngFor="let recipient of transformToHashMap(weather) | keyvalue">
     <div class="weather">
-      <div>{{period.time}}</div>
-      <img src="icon-snow.png" alt="снежинка">
-      <div>{{period.temp}}</div>
-      <div>{{period.date}}</div>
+      <div>{{recipient.key}}</div>
+      <div *ngFor="let temp of recipient.value">
+        {{temp.temp}}
+        {{temp.time}}
+      </div>
     </div>
   </ng-template>
 </swiper>
