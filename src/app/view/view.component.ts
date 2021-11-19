@@ -18,7 +18,7 @@ export interface PeriodForecast {
 })
 export class ViewComponent implements OnInit {
   @Input() position: string = ""
-  weather: PeriodForecast[] = []
+  weather: Map<String, PeriodForecast[]> = new Map<String, PeriodForecast[]>()
 
   constructor(private weatherService: WeatherService) {
   }
@@ -28,8 +28,12 @@ export class ViewComponent implements OnInit {
 
   ngOnChanges() {
     if (this.position?.length != 0) {
-      this.weatherService.getWeather(this.position).subscribe(data => this.weather = data)
+      this.weatherService.getWeather(this.position).subscribe(data => this.weather = this.transformToHashMap(data))
     }
+  }
+
+  public originalOrder = (a: any, b: any): number => {
+    return 0;
   }
 
   public transformToHashMap(array: PeriodForecast[]) {

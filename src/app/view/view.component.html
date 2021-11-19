@@ -1,18 +1,19 @@
 <swiper
   [slidesPerView]="1"
-
-  [spaceBetween]="20"
   [pagination]="{
       clickable: true
     }"
   class="mySwiper"
 >
-  <ng-template swiperSlide *ngFor="let recipient of transformToHashMap(weather) | keyvalue">
-    <div class="weather">
-      <div>{{recipient.key}}</div>
-      <div *ngFor="let temp of recipient.value">
-        {{temp.temp}}
-        {{temp.time}}
+  <ng-template swiperSlide *ngFor="let entry of weather | keyvalue: originalOrder">
+    <div class="weather-content-block">
+      <div class="weather-head">{{entry.key}}</div>
+      <div class="weather-content">
+        <div class="weather-item" *ngFor="let periodForecast of entry.value">
+          <div>{{periodForecast.time}}</div>
+          <div><img src="icon-snow.png" alt="снег"></div>
+          <div>{{periodForecast.temp}}</div>
+        </div>
       </div>
     </div>
   </ng-template>

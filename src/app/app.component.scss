@@ -2,6 +2,11 @@
   min-height: 100vh;
   //background-color: #161616FF;
 }
+
+::ng-deep * {
+  font-family: Arial, sans-serif;
+}
+
 html,
 body {
   position: relative;
@@ -10,7 +15,7 @@ body {
 
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
   font-size: 14px;
   color: #000;
   margin: 0;
