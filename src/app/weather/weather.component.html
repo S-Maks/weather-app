@@ -1,7 +1,6 @@
 <div>
   <h3 class="text-center text-weather">ПОГОДА</h3>
   <div class="horizontal-center input-block">
-    <span *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</span>
     <div class="option-select">
       <ng-select
         (keyup)="onInput($event)"
@@ -10,6 +9,7 @@
         </ng-option>
       </ng-select>
     </div>
+    <div *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</div>
   </div>
   <div *ngIf="pos?.length!=0">
     <app-view [position]="pos"></app-view>

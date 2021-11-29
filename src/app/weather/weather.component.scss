@@ -6,7 +6,7 @@
 .text-weather {
   font-size: 30px;
   color: white;
-  font-family: serif;
+  font-family: Arial, sans-serif;
 }
 
 .input-block {
@@ -22,6 +22,7 @@
 .option-select {
   margin-top: 10px;
   display: block;
+  color: white;
 }
 ::ng-deep .ng-option-disabled{
   margin-top: 27px;
