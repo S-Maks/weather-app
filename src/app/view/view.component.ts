@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, Type, ViewEncapsulation} from "@angular/core";
+import {Component, Input, OnChanges, ViewEncapsulation} from "@angular/core";
 import SwiperCore, {Pagination} from "swiper";
 import {WeatherService} from "../service/weather.service";
-import {PeriodForecast} from "@app/models/period-forecast.interface";
+import {PeriodForecast} from "@app/models";
 
 SwiperCore.use([Pagination]);
 
