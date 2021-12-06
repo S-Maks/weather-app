@@ -1,14 +1,9 @@
-import {Component, Input, OnInit, ViewEncapsulation} from "@angular/core";
+import {Component, Input, OnChanges, Type, ViewEncapsulation} from "@angular/core";
 import SwiperCore, {Pagination} from "swiper";
-import {WeatherService} from "../weather/service/weather.service";
+import {WeatherService} from "../service/weather.service";
+import {PeriodForecast} from "@app/models/period-forecast.interface";
 
 SwiperCore.use([Pagination]);
-
-export interface PeriodForecast {
-  temp: number
-  time: string
-  date: string
-}
 
 @Component({
   selector: "app-view",
@@ -16,14 +11,12 @@ export interface PeriodForecast {
   styleUrls: ["view.component.scss"],
   encapsulation: ViewEncapsulation.None,
 })
-export class ViewComponent implements OnInit {
+export class ViewComponent implements OnChanges {
+
   @Input() position: string = ""
   weather: Map<String, PeriodForecast[]> = new Map<String, PeriodForecast[]>()
 
   constructor(private weatherService: WeatherService) {
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnChanges() {
@@ -32,19 +25,19 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  public originalOrder = (a: any, b: any): number => {
+  originalOrder = (a: any, b: any): number => {
     return 0;
   }
 
-  public transformToHashMap(array: PeriodForecast[]) {
+  private transformToHashMap(array: PeriodForecast[]): Map<String, PeriodForecast[]> {
     const temp = new Map<String, PeriodForecast[]>();
     array.forEach((data: PeriodForecast) =>
-      temp.set(data.date, addElement(temp.get(data.date) || [], data)))
+      temp.set(data.date, ViewComponent.addElement(temp.get(data.date) || [], data)))
     return temp;
   }
-}
 
-function addElement(array: PeriodForecast[], element: PeriodForecast) {
-  array.push(element)
-  return array;
+  private static addElement(array: PeriodForecast[], element: PeriodForecast): PeriodForecast[] {
+    array.push(element)
+    return array;
+  }
 }

@@ -18,7 +18,7 @@ import {SwiperModule} from "swiper/angular";
     ViewComponent
   ],
   imports: [
-    BrowserModule, NgSelectModule, FormsModule, HttpClientModule, SwiperModule
+    BrowserModule, NgSelectModule, FormsModule, HttpClientModule, SwiperModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

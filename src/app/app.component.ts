@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NgSelectConfig} from "@ng-select/ng-select";
 
 @Component({
@@ -8,6 +8,7 @@ import {NgSelectConfig} from "@ng-select/ng-select";
 })
 export class AppComponent {
   title = 'weather-app';
+
   constructor(private config: NgSelectConfig) {
     this.config.notFoundText = '';
     this.config.appendTo = 'body';

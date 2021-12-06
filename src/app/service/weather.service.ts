@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../../../environments/environment";
+import {environment} from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
-import {City} from "../weather.component";
+import {City} from "../weather/weather.component";
 import {BaseService} from "./base.service";
-import {PeriodForecast} from "../../view/view.component";
+import {PeriodForecast} from "../view/view.component";
 
 @Injectable({
   providedIn: 'root'
