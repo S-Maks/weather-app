@@ -1,11 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../service/weather.service";
 import {DatePipe} from "@angular/common";
-
-export interface City {
-  pos: string
-  name: string
-}
+import {City} from "@app/models";
 
 @Component({
   selector: 'app-weather',
@@ -24,15 +20,13 @@ export class WeatherComponent implements OnInit {
   }
 
   onInput(event: Event) {
-      if ((<HTMLInputElement>event.target).value?.length > 3) {
-        console.log('yes')
-        this.isValid = true
-        this.weatherService.getCities((<HTMLInputElement>event.target).value).subscribe(event => this.cities = event)
-      } else {
-        console.log('no')
-        this.isValid = false
-        this.cities = []
-      }
+    if ((<HTMLInputElement>event.target).value?.length > 3) {
+      this.isValid = true
+      this.weatherService.getCities((<HTMLInputElement>event.target).value).subscribe(event => this.cities = event)
+    } else {
+      this.isValid = false
+      this.cities = []
+    }
   }
 
   onEnter(pos: string) {
