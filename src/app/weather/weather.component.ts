@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {WeatherService} from "../service/weather.service";
 import {DatePipe} from "@angular/common";
 import {City} from "@app/models";
@@ -8,15 +8,12 @@ import {City} from "@app/models";
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent {
   isValid: boolean = false;
   cities: City[] = []
   pos: string = ''
 
   constructor(private weatherService: WeatherService, public datepipe: DatePipe) {
-  }
-
-  ngOnInit(): void {
   }
 
   onInput(event: Event) {
