@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {WeatherService} from "../service/weather.service";
-import {DatePipe} from "@angular/common";
 import {City} from "@app/models";
 
 @Component({
@@ -9,17 +8,17 @@ import {City} from "@app/models";
   styleUrls: ['./weather.component.scss'],
 })
 export class WeatherComponent {
-  isValid: boolean = false;
+  isValid: boolean = true;
   cities: City[] = []
   pos: string = ''
 
-  constructor(private weatherService: WeatherService, public datepipe: DatePipe) {
+  constructor(private weatherService: WeatherService) {
   }
 
-  onInput(event: Event) {
-    if ((<HTMLInputElement>event.target).value?.length > 3) {
+  onInput($event: { term: string; items: any[] }) {
+    if ($event.term?.length > 3) {
       this.isValid = true
-      this.weatherService.getCities((<HTMLInputElement>event.target).value).subscribe(event => this.cities = event)
+      this.weatherService.getCities($event.term).subscribe(event => this.cities = event)
     } else {
       this.isValid = false
       this.cities = []

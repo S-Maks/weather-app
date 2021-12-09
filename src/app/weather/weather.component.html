@@ -3,7 +3,7 @@
   <div class="horizontal-center input-block">
     <div class="option-select">
       <ng-select
-        (keyup)="onInput($event)"
+        (search)="onInput($event)"
         (change)="onEnter($event)">
         <ng-option *ngFor="let city of cities" [value]="city.pos">{{city.name}}
         </ng-option>
