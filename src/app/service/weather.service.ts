@@ -3,9 +3,8 @@ import {HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {catchError, map} from "rxjs/operators";
-import {City} from "../weather/weather.component";
 import {BaseService} from "./base.service";
-import {PeriodForecast} from "@app/models";
+import {City, PeriodForecast} from "@app/models";
 
 @Injectable({
   providedIn: 'root'
