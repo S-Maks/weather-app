@@ -3,8 +3,9 @@
   <div class="horizontal-center input-block">
     <div class="option-select">
       <ng-select
+        notFoundText=""
         (search)="onInput($event)"
-        (change)="onEnter($event)">
+        [(ngModel)]="pos">
         <ng-option *ngFor="let city of cities" [value]="city.pos">{{city.name}}
         </ng-option>
       </ng-select>
@@ -14,5 +15,4 @@
   <div *ngIf="pos?.length!=0">
     <app-view [position]="pos"></app-view>
   </div>
-
 </div>
