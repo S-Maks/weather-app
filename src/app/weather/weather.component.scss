@@ -1,3 +1,5 @@
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
 .horizontal-center {
   margin-left: auto;
   margin-right: auto;
@@ -23,15 +25,21 @@
   margin-top: 10px;
   display: block;
 }
-::ng-deep .ng-option-disabled{
+
+::ng-deep .ng-option-disabled {
   margin-top: 27px;
   margin-left: 7px;
 }
 
-html { box-sizing: border-box; }
+html {
+  box-sizing: border-box;
+}
+
 html *,
 html *:before,
-html *:after { box-sizing: inherit; }
+html *:after {
+  box-sizing: inherit;
+}
 
 body {
   max-width: 42em;
@@ -50,12 +58,16 @@ h1 {
   font-size: 2em;
   text-transform: uppercase;
 }
+
 p,
 a {
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
   font-size: small;
 }
-p { margin: 1.375rem 0; }
+
+p {
+  margin: 1.375rem 0;
+}
 
 .icon {
   position: relative;
@@ -75,13 +87,13 @@ p { margin: 1.375rem 0; }
   margin: -1.84375em;
   background: currentColor;
   border-radius: 50%;
-  box-shadow:
-    -2.1875em 0.6875em 0 -0.6875em,
-    2.0625em 0.9375em 0 -0.9375em,
-    0 0 0 0.375em #fff,
-    -2.1875em 0.6875em 0 -0.3125em #fff,
-    2.0625em 0.9375em 0 -0.5625em #fff;
+  box-shadow: -2.1875em 0.6875em 0 -0.6875em,
+  2.0625em 0.9375em 0 -0.9375em,
+  0 0 0 0.375em #fff,
+  -2.1875em 0.6875em 0 -0.3125em #fff,
+  2.0625em 0.9375em 0 -0.5625em #fff;
 }
+
 .cloud:after {
   content: '';
   position: absolute;
@@ -93,20 +105,23 @@ p { margin: 1.375rem 0; }
   background: currentColor;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
+
 .cloud:nth-child(2) {
   z-index: 0;
   background: #fff;
-  box-shadow:
-    -2.1875em 0.6875em 0 -0.6875em #fff,
-    2.0625em 0.9375em 0 -0.9375em #fff,
-    0 0 0 0.375em #fff,
-    -2.1875em 0.6875em 0 -0.3125em #fff,
-    2.0625em 0.9375em 0 -0.5625em #fff;
+  box-shadow: -2.1875em 0.6875em 0 -0.6875em #fff,
+  2.0625em 0.9375em 0 -0.9375em #fff,
+  0 0 0 0.375em #fff,
+  -2.1875em 0.6875em 0 -0.3125em #fff,
+  2.0625em 0.9375em 0 -0.5625em #fff;
   opacity: 0.3;
   transform: scale(0.5) translate(6em, -3em);
   animation: cloud 4s linear infinite;
 }
-.cloud:nth-child(2):after { background: #fff; }
+
+.cloud:nth-child(2):after {
+  background: #fff;
+}
 
 .sun {
   position: absolute;
@@ -120,6 +135,7 @@ p { margin: 1.375rem 0; }
   box-shadow: 0 0 0 0.375em #000;
   animation: spin 12s infinite linear;
 }
+
 .rays {
   position: absolute;
   top: -2em;
@@ -132,6 +148,7 @@ p { margin: 1.375rem 0; }
   border-radius: 0.25em;
   box-shadow: 0 5.375em #000;
 }
+
 .rays:before,
 .rays:after {
   content: '';
@@ -147,9 +164,11 @@ p { margin: 1.375rem 0; }
   border-radius: 0.25em;
   box-shadow: 0 5.375em #000;
 }
+
 .rays:before {
   transform: rotate(120deg);
 }
+
 .cloud + .sun {
   margin: -2em 1em;
 }
@@ -157,7 +176,9 @@ p { margin: 1.375rem 0; }
 /* Animations */
 
 @keyframes spin {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes lightning {
