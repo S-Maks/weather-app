@@ -14,6 +14,9 @@ SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 export class ViewComponent implements OnChanges {
 
   @Input() position: string = ""
+
+  @Input() lat: number = 0
+  @Input() lon: number = 0
   weather: Map<String, PeriodForecast[]> = new Map<String, PeriodForecast[]>()
 
   constructor(private weatherService: WeatherService) {
