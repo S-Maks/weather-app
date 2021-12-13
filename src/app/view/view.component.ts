@@ -1,9 +1,9 @@
 import {Component, Input, OnChanges, ViewEncapsulation} from "@angular/core";
-import SwiperCore, {Pagination} from "swiper";
+import SwiperCore, {Keyboard, Mousewheel, Navigation, Pagination,} from "swiper";
 import {PeriodForecast} from "@app/models";
 import {WeatherService} from "@app/service";
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
 
 @Component({
   selector: "app-view",

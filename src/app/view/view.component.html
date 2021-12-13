@@ -1,8 +1,9 @@
 <swiper
-  [slidesPerView]="1"
-  [pagination]="{
-      clickable: true
-    }"
+  [cssMode]="true"
+  [navigation]="true"
+  [pagination]="true"
+  [mousewheel]="true"
+  [keyboard]="true"
   class="mySwiper"
 >
   <ng-template swiperSlide *ngFor="let entry of weather | keyvalue: originalOrder">
