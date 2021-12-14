@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {WeatherService} from "../service/weather.service";
+import {WeatherService} from "@app/service";
 import {City} from "@app/models";
 
 @Component({
