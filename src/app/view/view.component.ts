@@ -23,7 +23,7 @@ export class ViewComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    if (this.position?.length != 0) {
+    if (this.position?.length != null) {
       this.weatherService.getWeather(this.position).subscribe(data => this.weather = this.transformToHashMap(data))
     }
   }

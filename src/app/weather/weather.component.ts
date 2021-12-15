@@ -11,6 +11,7 @@ export class WeatherComponent {
   isValid: boolean = true;
   cities: City[] = []
   pos: string = ''
+  search: string = ''
 
   constructor(private weatherService: WeatherService) {
   }
