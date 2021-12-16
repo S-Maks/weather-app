@@ -35,10 +35,10 @@ export class WeatherService extends BaseService {
     );
   }
 
-  getWeather(name: String): Observable<PeriodForecast[]> {
+  getWeather(lat: string, lon: string): Observable<PeriodForecast[]> {
     const httpParams = new HttpParams()
-      .set('lat', name.split(' ')[1])
-      .set('lon', name.split(' ')[0])
+      .set('lat', lat)
+      .set('lon', lon)
       .set('appid', environment.openWeatherMapApiKey)
       .set('units', 'metric')
     return this.http.get<any>(environment.openWeatherMapURL, {params: httpParams})

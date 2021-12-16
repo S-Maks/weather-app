@@ -15,8 +15,6 @@ export class ViewComponent implements OnChanges {
 
   @Input() position: string = ""
 
-  @Input() lat: number = 0
-  @Input() lon: number = 0
   weather: Map<String, PeriodForecast[]> = new Map<String, PeriodForecast[]>()
 
   constructor(private weatherService: WeatherService) {
@@ -24,7 +22,8 @@ export class ViewComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.position?.length != null) {
-      this.weatherService.getWeather(this.position).subscribe(data => this.weather = this.transformToHashMap(data))
+      const [lat, lon] = this.position.split(' ')
+      this.weatherService.getWeather(lat, lon).subscribe(data => this.weather = this.transformToHashMap(data))
     }
   }
 
