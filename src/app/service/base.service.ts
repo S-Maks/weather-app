@@ -8,7 +8,7 @@ import {DatePipe} from "@angular/common";
 })
 export class BaseService {
 
-  constructor(protected http: HttpClient, public datepipe:DatePipe) {
+  constructor(protected http: HttpClient, public datepipe: DatePipe) {
   }
 
   protected handleError<T>(operation = 'operation', result?: T): any {
