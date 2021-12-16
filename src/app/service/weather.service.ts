@@ -17,20 +17,18 @@ export class WeatherService extends BaseService {
       .set('geocode', name)
       .set('results', environment.resultCitiesCount.toString())
       .set('format', environment.format)
-    const regex2 = new RegExp('^[0-9]+\,[0-9]+$');
     return this.http.get<any>(environment.url, {
       params: httpParams
     }).pipe(
       map(data => {
           return data?.response?.GeoObjectCollection?.featureMember?.filter((obj: any) => obj?.GeoObject?.metaDataProperty?.GeocoderMetaData?.kind === 'locality' ||
             obj?.GeoObject?.metaDataProperty?.GeocoderMetaData?.kind === 'province')
-            .map((value: any) => (
-              {
-                pos: value?.GeoObject?.Point?.pos,
-                lon: value?.GeoObject?.Point?.pos?.split(' ')[0],
-                lat: value?.GeoObject?.Point?.pos?.split(' ')[1],
-                name: value?.GeoObject?.name + ' ' + value?.GeoObject?.description
-              }))
+            .map((value: any) => ({
+              pos: value?.GeoObject?.Point?.pos,
+              lon: value?.GeoObject?.Point?.pos?.split(' ')[0],
+              lat: value?.GeoObject?.Point?.pos?.split(' ')[1],
+              name: `${value?.GeoObject?.name}, ${value?.GeoObject?.description}`
+            }))
         },
       ),
       catchError(this.handleError('getCities', []))

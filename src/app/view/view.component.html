@@ -13,7 +13,7 @@
         <div class="weather-item" *ngFor="let periodForecast of entry.value">
           <div>{{periodForecast.time}}</div>
           <div><img src="http://openweathermap.org/img/wn/{{periodForecast.icon}}@2x.png" alt="снег"></div>
-          <div>{{periodForecast.temp}}</div>
+          <div>{{periodForecast.temp}} &deg;C</div>
         </div>
       </div>
     </div>

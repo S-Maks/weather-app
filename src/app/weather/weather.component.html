@@ -4,14 +4,13 @@
     <div class="option-select">
       <ng-select
         appearance="outline"
-        [notFoundText]="''"
+        [notFoundText]="'Введите минимум 3 символа, либо попробуйте изменить запрос'"
         (search)="onInput($event)"
         [(ngModel)]="pos">
         <ng-option *ngFor="let city of cities" [value]="city.pos">{{city.name}}
         </ng-option>
       </ng-select>
     </div>
-    <div *ngIf=!isValid>Введите минимум 3 символа, либо попробуйте изменить запрос</div>
   </div>
   <div *ngIf="pos?.length!=0">
     <app-view [position]="pos"></app-view>

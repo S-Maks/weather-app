@@ -17,7 +17,6 @@ export class WeatherComponent {
   }
 
   onInput($event: { term: string; items: any[] }) {
-    console.log(this.pos)
     if ($event.term?.length > 3) {
       this.isValid = true
       this.weatherService.getCities($event.term).subscribe(event => this.cities = event)
